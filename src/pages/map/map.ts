@@ -12,6 +12,7 @@ import { HomePage } from '../home/home';
 import { MenuController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { PopoverPage } from '../popover/popover';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-map',
@@ -19,7 +20,7 @@ import { PopoverPage } from '../popover/popover';
 })
 export class MapPage {
   map: GoogleMap;
-  constructor(public platform: Platform, public geolocation: Geolocation, public navCtrl: NavController, public menuCtrl: MenuController,public popoverCtrl: PopoverController) { }
+  constructor(private alertCtrl: AlertController, public platform: Platform, public geolocation: Geolocation, public navCtrl: NavController, public menuCtrl: MenuController,public popoverCtrl: PopoverController) { }
 
   navButton(){
     this.navCtrl.push(HomePage);
@@ -35,6 +36,7 @@ export class MapPage {
       this.loadMap();
     });
   }
+
 
   loadMap() {
     // const options = {
@@ -80,6 +82,39 @@ export class MapPage {
       ev: myEvent
     });
   }
-  
 
+  presentPrompt() {
+    let alert = this.alertCtrl.create({
+      title: 'Login',
+      inputs: [
+        {
+          name: 'username',
+          placeholder: 'Username'
+        },
+        {
+          name: 'password',
+          placeholder: 'Password',
+          type: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Login',
+          handler: data => {
+            console.log("you dung did it you goof");
+            }
+          }
+      ]
+
+    });
+    alert.present();
+  }
+  
 }
