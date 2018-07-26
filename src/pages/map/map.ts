@@ -85,15 +85,15 @@ export class MapPage {
 
   presentPrompt() {
     let alert = this.alertCtrl.create({
-      title: 'Login',
+      title: 'Connect To Bracelet',
       inputs: [
         {
-          name: 'username',
-          placeholder: 'Username'
+          name: 'Model #',
+          placeholder: 'Connection Name'
         },
         {
-          name: 'password',
-          placeholder: 'Password',
+          name: 'Pin',
+          placeholder: 'Bracelet #',
           type: 'password'
         }
       ],
@@ -105,8 +105,8 @@ export class MapPage {
             console.log('Cancel clicked');
           }
         },
-        {
-          text: 'Login',
+        {   
+          text: 'Connect',
           handler: data => {
             console.log("you dung did it you goof");
             }

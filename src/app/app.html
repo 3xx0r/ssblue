@@ -1,7 +1,14 @@
 <ion-menu [content]="content">
     <ion-header>
         <ion-toolbar>
-            <ion-title>Pages</ion-title>
+            <ion-title>Map Menu</ion-title>
+            <ion-list>
+                <ion-list-header>Ionic</ion-list-header>
+                <button ion-item (click)="close()">Turn On/Off</button>
+                <button ion-item (click)="close()">Set Distance</button>
+                <button ion-item (click)="close()">Settings</button>
+                <button ion-item (click)="close()">Log Out</button>
+              </ion-list>
         </ion-toolbar>
 
         <ion-content>
